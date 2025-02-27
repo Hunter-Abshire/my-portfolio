@@ -1,53 +1,44 @@
-import { lazy, Suspense } from 'react';
-import { Layout } from './components/layout/Layout';
-import { Hero } from './components/sections/Hero';
-import { GlobalStyles } from './styles/GlobalStyles';
-import { ThemeProvider } from '@emotion/react';
-import { theme } from './styles/theme';
-import styled from '@emotion/styled';
-
-// Lazy load non-critical components
-const Projects = lazy(() => import('./components/sections/Projects'));
-const Skills = lazy(() => import('./components/sections/Skills'));
-const Contact = lazy(() => import('./components/sections/Contact'));
-
-// Loading fallback component
-const LoadingFallback = styled.div`
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${theme.colors.glass.background};
-  backdrop-filter: blur(8px);
-  color: ${theme.colors.accent};
-  font-size: 1.2rem;
-  
-  @media print {
-    display: none;
-  }
-`;
+import React, {useState, useEffect} from "react";
+import {
+  Main,
+  Timeline,
+  Expertise,
+  Project,
+  Contact,
+  Navigation,
+  Footer,
+} from "./components";
+import FadeIn from './components/FadeIn';
+import './index.scss';
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-      <Layout>
-        {/* Hero section is critical for LCP, so keep it eager loaded */}
-        <Hero />
-        
-        {/* Wrap non-critical sections in Suspense */}
-        <Suspense fallback={<LoadingFallback>Loading projects...</LoadingFallback>}>
-          <Projects />
-        </Suspense>
-        <Suspense fallback={<LoadingFallback>Loading skills...</LoadingFallback>}>
-          <Skills />
-        </Suspense>
-        <Suspense fallback={<LoadingFallback>Loading contact...</LoadingFallback>}>
-          <Contact />
-        </Suspense>
-      </Layout>
-    </ThemeProvider>
-  );
+    const [mode, setMode] = useState<string>('dark');
+
+    const handleModeChange = () => {
+        if (mode === 'dark') {
+            setMode('light');
+        } else {
+            setMode('dark');
+        }
+    }
+
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+      }, []);
+
+    return (
+    <div className={`main-container ${mode === 'dark' ? 'dark-mode' : 'light-mode'}`}>
+        <Navigation parentToChild={{mode}} modeChange={handleModeChange}/>
+        <FadeIn transitionDuration={700}>
+            <Main/>
+            <Expertise/>
+            <Timeline/>
+            <Project/>
+            <Contact/>
+        </FadeIn>
+        <Footer />
+    </div>
+    );
 }
 
 export default App;
