@@ -6,7 +6,7 @@ phases:
       nodejs: latest  # Use Node.js 20 (or the version compatible with React 19)
     commands:
       - echo "Installing dependencies..."
-      - npm install -g typescript
+      - npm install typescript --save-dev
       - npm install
 
   build:
