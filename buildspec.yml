@@ -3,14 +3,17 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: latest  # Use Node.js 20 (or the version compatible with React 19)
+      nodejs: 20  # Explicit Node.js 20 (stable for React 19/TypeScript)
     commands:
-      - echo "Clearing node_modules and reinstalling dependencies..."
-      - rm -rf node_modules
-      - npm install
+      - echo "Cleaning cache and installing dependencies..."
+      - rm -rf node_modules package-lock.json  # Clear old dependencies
+      - npm install typescript --save-dev       # Install TypeScript locally
+      - npm install                            # Install all dependencies
 
   build:
     commands:
+      - echo "Checking TypeScript installation..."
+      - npx tsc --version                       # Verify TypeScript is accessible
       - echo "Building React app..."
       - npm run build
 
@@ -20,5 +23,5 @@ phases:
 
 artifacts:
   files:
-    - '**/*'  # Include all files in the build output
-  base-directory: build  # Replace with 'build' if using Create React App
+    - '**/*'  
+  base-directory: dist  # Use 'build' if using Create React App
