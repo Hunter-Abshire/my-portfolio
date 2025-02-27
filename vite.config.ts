@@ -5,13 +5,13 @@ import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/portfolio-01/',
+  base: '/',
   plugins: [
     react({
       babel: {
         plugins: ['@emotion/babel-plugin']
       }
-    }),
+    }),/*
     compression({
       algorithm: 'brotliCompress',
       ext: '.br',
@@ -23,7 +23,7 @@ export default defineConfig({
       ext: '.gz',
       threshold: 512,
       compressionOptions: { level: 9 }
-    }),
+    }),*/
     visualizer({
       open: true,
       gzipSize: true,
