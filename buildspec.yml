@@ -5,7 +5,8 @@ phases:
     runtime-versions:
       nodejs: latest  # Use Node.js 20 (or the version compatible with React 19)
     commands:
-      - echo "Installing dependencies..."
+      - echo "Clearing node_modules and reinstalling dependencies..."
+      - rm -rf node_modules
       - npm install
 
   build:
