@@ -178,21 +178,27 @@ const ProjectLinks = styled.div`
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A full-stack web application with real-time features and modern UI/UX design.",
+    title: "Name Tracking App",
+    description: "A full-stack web application managed with Kubernetes.",
     image: "https://via.placeholder.com/400x200",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    techStack: ["React", "JavaScript", "Node.js", "MongoDB", "Express.js", "Kubernetes", "GitHub Actions"],
+    githubUrl: "https://github.com/Hunter-Abshire/Lexmark",
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Mobile-first e-commerce platform with seamless payment integration.",
+    title: "Facial Detection App",
+    description: "An AWS powered workflow to detect faces within an image.",
     image: "https://via.placeholder.com/400x200",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    techStack: ["Step Functions", "Lambda", "S3", "DynamoDB", "IAM", "Terraform", "Python"],
+    githubUrl: "https://github.com/Hunter-Abshire/aws_facial_recognition"
+  },
+  {
+    id: 3,
+    title: "React Portfolio",
+    description: "An AWS powered workflow to detect faces within an image.",
+    image: "https://via.placeholder.com/400x200",
+    techStack: ["Step Functions", "Lambda", "S3", "DynamoDB", "IAM", "Terraform", "Python"],
+    githubUrl: "https://github.com/Hunter-Abshire/aws_facial_recognition"
   },
 ];
 
@@ -268,7 +274,7 @@ const Projects = () => {
                     <FaGithub aria-hidden="true" />
                     <span className="sr-only">GitHub repository</span>
                   </a>
-                  <a 
+                  {/* <a 
                     href={project.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -276,7 +282,7 @@ const Projects = () => {
                   >
                     <FaExternalLinkAlt aria-hidden="true" />
                     <span className="sr-only">Live site</span>
-                  </a>
+                  </a> */}
                 </ProjectLinks>
               </ProjectContent>
             </ProjectCard>
