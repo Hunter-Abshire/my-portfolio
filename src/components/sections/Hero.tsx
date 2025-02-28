@@ -137,7 +137,7 @@ export const Hero = () => {
             </Description>
             <SocialLinks role="list" aria-label="Social media links">
               <a 
-                href="https://github.com" 
+                href="https://github.com/Hunter-Abshire" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit my GitHub profile"
@@ -149,7 +149,7 @@ export const Hero = () => {
                 <span className="sr-only">GitHub</span>
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/hunter-abshire" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit my LinkedIn profile"
@@ -161,7 +161,7 @@ export const Hero = () => {
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a 
-                href="mailto:your.email@example.com"
+                href="mailto:hunterkabshire@gmail.com"
                 aria-label="Send me an email"
                 role="listitem"
               >
