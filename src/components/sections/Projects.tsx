@@ -4,7 +4,7 @@ import SeniorDesignLayout from '../../images/Senior-Design-Layout.png';
 import RecordsForPortfolio from '../../images/RecordsForPortfolio.png';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
