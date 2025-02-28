@@ -130,11 +130,10 @@ export const Hero = () => {
               Hi, I'm Hunter
             </Title>
             <Subtitle role="heading" aria-level={3}>
-              Cloud Engineer
+              Software Engineer
             </Subtitle>
             <Description role="paragraph">
-              I create elegant solutions to complex problems, specializing in cloud technology
-              with a focus on AWS.
+              I create elegant solutions to complex problems, driven by a passion for leveraging cloud technology. I specialize in AWS, Python, JavaScript, and Node.js to deliver scalable and efficient systems.
             </Description>
             <SocialLinks role="list" aria-label="Social media links">
               <a 
