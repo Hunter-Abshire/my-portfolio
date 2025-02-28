@@ -150,7 +150,7 @@ export const Hero = () => {
                 <span className="sr-only">GitHub</span>
               </a>
               <a 
-                href="www.linkedin.com/in/hunter-abshire" 
+                href="https://linkedin.com/in/hunter-abshire" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit my LinkedIn profile"

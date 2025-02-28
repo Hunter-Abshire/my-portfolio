@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import FacialDetectionImage from '../../images/Face-Detection-Workflow.png';
+import SeniorDesignLayout from '../../images/Senior-Design-Layout.png';
+import RecordsForPortfolio from '../../images/RecordsForPortfolio.png';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -70,12 +73,13 @@ const ProjectCard = styled(motion.div)`
   }
 `;
 
-const ProjectImage = styled.div<{ imageUrl: string }>`
+const ProjectImage = styled.div<{ image: string }>`
   width: 100%;
   height: 180px;
-  background-image: url(${props => props.imageUrl});
-  background-size: cover;
+  background-image: url(${props => props.image});
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 
   @media (min-width: ${theme.breakpoints.md}) {
@@ -180,7 +184,7 @@ const projects = [
     id: 1,
     title: "Name Tracking App",
     description: "A full-stack web application managed with Kubernetes.",
-    image: "https://via.placeholder.com/400x200",
+    image: SeniorDesignLayout,
     techStack: ["React", "JavaScript", "Node.js", "MongoDB", "Express.js", "Kubernetes", "GitHub Actions"],
     githubUrl: "https://github.com/Hunter-Abshire/Lexmark",
   },
@@ -188,18 +192,18 @@ const projects = [
     id: 2,
     title: "Facial Detection App",
     description: "An AWS powered workflow to detect faces within an image.",
-    image: "https://via.placeholder.com/400x200",
+    image: FacialDetectionImage,
     techStack: ["Step Functions", "Lambda", "S3", "DynamoDB", "IAM", "Terraform", "Python"],
     githubUrl: "https://github.com/Hunter-Abshire/aws_facial_recognition"
   },
   {
     id: 3,
-    title: "React Portfolio",
-    description: "An AWS powered workflow to detect faces within an image.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["Step Functions", "Lambda", "S3", "DynamoDB", "IAM", "Terraform", "Python"],
-    githubUrl: "https://github.com/Hunter-Abshire/aws_facial_recognition"
-  },
+    title: "Portfolio Website",
+    description: "A portfolio of my projects.",
+    image: RecordsForPortfolio,
+    techStack: ["Route53", "CodePipeline", "CodeBuild", "CloudFront", "S3", "TypeScript", "Node.js"],
+    githubUrl: "https://github.com/Hunter-Abshire/my-portfolio"
+  }
 ];
 
 const Projects = () => {
@@ -252,7 +256,7 @@ const Projects = () => {
               aria-labelledby={`project-title-${project.id}`}
             >
               <ProjectImage 
-                imageUrl={project.image} 
+                image={project.image} 
                 role="img" 
                 aria-label={`Screenshot of ${project.title}`} 
               />
