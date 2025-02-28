@@ -1,4 +1,7 @@
 import styled from '@emotion/styled';
+import FacialDetectionImage from '../../images/Face-Detection-Workflow.png';
+import SeniorDesignLayout from '../../images/Senior-Design-Layout.png';
+import RecordsForPortfolio from '../../images/RecordsForPortfolio.png';
 import { motion } from 'framer-motion';
 import { theme } from '../../styles/theme';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -70,12 +73,13 @@ const ProjectCard = styled(motion.div)`
   }
 `;
 
-const ProjectImage = styled.div<{ imageUrl: string }>`
+const ProjectImage = styled.div<{ image: string }>`
   width: 100%;
   height: 180px;
-  background-image: url(${props => props.imageUrl});
-  background-size: cover;
+  background-image: url(${props => props.image});
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
 
   @media (min-width: ${theme.breakpoints.md}) {
@@ -178,22 +182,28 @@ const ProjectLinks = styled.div`
 const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A full-stack web application with real-time features and modern UI/UX design.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["React", "Node.js", "MongoDB", "Socket.IO"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "Name Tracking App",
+    description: "A full-stack web application managed with Kubernetes.",
+    image: SeniorDesignLayout,
+    techStack: ["React", "JavaScript", "Node.js", "MongoDB", "Express.js", "Kubernetes", "GitHub Actions"],
+    githubUrl: "https://github.com/Hunter-Abshire/Lexmark",
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Mobile-first e-commerce platform with seamless payment integration.",
-    image: "https://via.placeholder.com/400x200",
-    techStack: ["Next.js", "TypeScript", "Stripe", "Tailwind"],
-    githubUrl: "https://github.com",
-    liveUrl: "https://example.com",
+    title: "Facial Detection App",
+    description: "An AWS powered workflow to detect faces within an image.",
+    image: FacialDetectionImage,
+    techStack: ["Step Functions", "Lambda", "S3", "DynamoDB", "IAM", "Terraform", "Python"],
+    githubUrl: "https://github.com/Hunter-Abshire/aws_facial_recognition"
   },
+  {
+    id: 3,
+    title: "Portfolio Website",
+    description: "A portfolio of my projects.",
+    image: RecordsForPortfolio,
+    techStack: ["Route53", "CodePipeline", "CodeBuild", "CloudFront", "S3", "TypeScript", "Node.js"],
+    githubUrl: "https://github.com/Hunter-Abshire/my-portfolio"
+  }
 ];
 
 const Projects = () => {
@@ -246,7 +256,7 @@ const Projects = () => {
               aria-labelledby={`project-title-${project.id}`}
             >
               <ProjectImage 
-                imageUrl={project.image} 
+                image={project.image} 
                 role="img" 
                 aria-label={`Screenshot of ${project.title}`} 
               />
@@ -268,7 +278,7 @@ const Projects = () => {
                     <FaGithub aria-hidden="true" />
                     <span className="sr-only">GitHub repository</span>
                   </a>
-                  <a 
+                  {/* <a 
                     href={project.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
@@ -276,7 +286,7 @@ const Projects = () => {
                   >
                     <FaExternalLinkAlt aria-hidden="true" />
                     <span className="sr-only">Live site</span>
-                  </a>
+                  </a> */}
                 </ProjectLinks>
               </ProjectContent>
             </ProjectCard>
